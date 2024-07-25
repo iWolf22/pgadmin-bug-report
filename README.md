@@ -4,7 +4,7 @@
 
 I am not sure if this is a bug or if I have configured something wrong.
 Currently I have pgadmin behind an SSL nginx reverse proxy in a docker compose environment.
-When I added an SSL certificate, it appears I am getting the following error below!
+When I added an SSL certificate, it appears I am getting the following error below and the page fails to load!
 
 ![image](https://github.com/user-attachments/assets/9cc1cb0e-af2b-401f-9178-e4ab6d2bf34c)
 
@@ -151,7 +151,7 @@ http {
 
 **Expected behavior**
 
-For pgadmin to work behind a nginx subdirectory with an SSL certificate.
+For pgadmin to work behind a nginx subdirectory with an SSL certificate (documentation: [https://www.pgadmin.org/docs/pgadmin4/latest/container_deployment.html#https-via-nginx](https://www.pgadmin.org/docs/pgadmin4/latest/container_deployment.html#https-via-nginx)).
 
 **Error message**
 
