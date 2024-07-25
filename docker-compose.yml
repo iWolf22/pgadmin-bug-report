@@ -1,0 +1,28 @@
+services:
+    pgadmin:
+        container_name: pgadmin
+        image: dpage/pgadmin4:8.9
+        restart: always
+        ports:
+            - 5050:80
+        environment:
+            PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+            PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+        volumes:
+            - pgadmin-data:/var/lib/pgadmin
+
+    nginx:
+        container_name: nginx
+        image: nginx:1.27
+        restart: always
+        ports:
+            - 80:80
+            - 443:443
+        volumes:
+            - ./utils/nginx/nginx.conf:/etc/nginx/nginx.conf
+            - ./utils/nginx/.env.dhparam.pem:/etc/nginx/ssl/.env.dhparam.pem
+            - ./utils/nginx/.env.server.cer:/etc/nginx/ssl/.env.server.cer
+            - ./utils/nginx/.env.server.key:/etc/nginx/ssl/.env.server.key
+
+volumes:
+    pgadmin-data:
